@@ -1,10 +1,10 @@
 #!/bin/bash
 
-sleep 20
+sleep 60
 
 echo "UPDATER: Initialization sequence started" | tee -a /dev/console
 
-sleep 5
+sleep 20
 
 echo "UPDATER: Checking update counter" | tee -a /dev/console
 
@@ -19,6 +19,8 @@ else
 	echo "UPDATER: Update count set to 0" | tee -a /dev/console
 fi
 
+sleep 20
+
 active_image=$(aktualizr-lite status | grep 'Active image is:' | cut -d ':' -f 2 | cut -f 1 | xargs)
 echo "UPDATER: The active image is: $active_image" | tee -a /dev/console
 
@@ -30,12 +32,13 @@ else
 	echo $(uname -r) > /sysroot/home/fio/kver
 fi
 
-sleep 5
+sleep 20
 
 if [ "$active_image" = "11" ]; then
 	echo "UPDATER: Downgrading to image: 8" | tee -a /dev/console
 	aktualizr-lite update --update-name=8 | tee -a /dev/console
 	echo "UPDATER: Image 8 has been applied successfully" | tee -a /dev/console
+	sleep 20
 	echo "UPDATER: Rebooting device to apply update" | tee -a /dev/console
 	counter=$((counter+1))
 	echo $counter > /sysroot/home/fio/counter
@@ -44,6 +47,7 @@ else
 	echo "UPDATER: Upgrading to image: 11" | tee -a /dev/console
 	aktualizr-lite update --update-name=11 | tee -a /dev/console
         echo "UPDATER: Image 11 has been applied successfully" | tee -a /dev/console
+	sleep 20
 	echo "UPDATER: Rebooting device to apply update" | tee -a /dev/console
         counter=$((counter+1))
         echo $counter > /sysroot/home/fio/counter
