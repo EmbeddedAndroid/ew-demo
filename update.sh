@@ -2,6 +2,7 @@
 
 sleep 60
 
+echo "" | tee -a /dev/console
 echo "---------------------------------------------------------------" | tee -a /dev/console
 echo "UPDATER: Initialization sequence started" | tee -a /dev/console
 echo "---------------------------------------------------------------" | tee -a /dev/console
