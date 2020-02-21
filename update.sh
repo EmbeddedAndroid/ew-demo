@@ -39,7 +39,8 @@ echo "" | tee -a /dev/console
 
 if test -f "/sysroot/home/fio/kver"; then
 	echo "---------------------------------------------------------------" | tee -a /dev/console
-	echo "UPDATER: The Linux kernel version has changed from: $(cat /sysroot/home/fio/kver) to $(uname -r)" | tee -a /dev/console
+	echo "UPDATER: The Linux kernel version has changed:" | tee -a /dev/console
+	echo "$(cat /sysroot/home/fio/kver) ==> $(uname -r)" | tee -a /dev/console
 	echo $(uname -r) > /sysroot/home/fio/kver
 	echo "---------------------------------------------------------------" | tee -a /dev/console
 	echo "" | tee -a /dev/console
@@ -59,6 +60,7 @@ if [ "$active_image" = "11" ]; then
 	echo "---------------------------------------------------------------" | tee -a /dev/console
 	echo "" | tee -a /dev/console
 	aktualizr-lite update --update-name=8 | tee -a /dev/console
+	echo "" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
 	echo "UPDATER: Image 8 has been applied successfully" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
@@ -78,6 +80,7 @@ else
 	echo "---------------------------------------------------------------" | tee -a /dev/console
 	echo "" | tee -a /dev/console
 	aktualizr-lite update --update-name=11 | tee -a /dev/console
+	echo "" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
         echo "UPDATER: Image 11 has been applied successfully" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
