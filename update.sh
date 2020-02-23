@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 60
+sleep 80
 
 echo "" | tee -a /dev/console
 echo "---------------------------------------------------------------" | tee -a /dev/console
@@ -54,15 +54,15 @@ fi
 
 sleep 5
 
-if [ "$active_image" = "11" ]; then
+if [ "$active_image" = "43" ]; then
 	echo "---------------------------------------------------------------" | tee -a /dev/console
-	echo "UPDATER DEMO: Now Downgrading to FoundriesFactory build: 8" | tee -a /dev/console
+	echo "UPDATER DEMO: Now Downgrading to FoundriesFactory build: 33" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
 	echo "" | tee -a /dev/console
-	aktualizr-lite update --update-name=8 | tee -a /dev/console
+	aktualizr-lite update --update-name=33 | tee -a /dev/console
 	echo "" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
-	echo "UPDATER DEMO: Image 8 has been installed successfully" | tee -a /dev/console
+	echo "UPDATER DEMO: Image 33 has been installed successfully" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
 	echo "" | tee -a /dev/console
 	sleep 2
@@ -76,13 +76,13 @@ if [ "$active_image" = "11" ]; then
 	reboot
 else
 	echo "---------------------------------------------------------------" | tee -a /dev/console
-	echo "UPDATER DEMO: Now Upgrading to FoundriesFactory build: 11" | tee -a /dev/console
+	echo "UPDATER DEMO: Now Upgrading to FoundriesFactory build: 43" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
 	echo "" | tee -a /dev/console
-	aktualizr-lite update --update-name=11 | tee -a /dev/console
+	aktualizr-lite update --update-name=43 | tee -a /dev/console
 	echo "" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
-        echo "UPDATER DEMO: Image 11 has been installed successfully" | tee -a /dev/console
+        echo "UPDATER DEMO: Image 43 has been installed successfully" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
 	echo "" | tee -a /dev/console
 	sleep 2
