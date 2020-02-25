@@ -37,26 +37,18 @@ echo "UPDATER DEMO: The active image is FoundriesFactory build: $active_image" |
 echo "---------------------------------------------------------------" | tee -a /dev/console
 echo "" | tee -a /dev/console
 
-if test -f "/sysroot/home/fio/kver"; then
-	echo "---------------------------------------------------------------" | tee -a /dev/console
-	echo "UPDATER DEMO: The last update includes a new Linux kernel version:" | tee -a /dev/console
-	echo "$(cat /sysroot/home/fio/kver) ==> $(uname -r)" | tee -a /dev/console
-	echo $(uname -r) > /sysroot/home/fio/kver
-	echo "---------------------------------------------------------------" | tee -a /dev/console
-	echo "" | tee -a /dev/console
-else
-	echo "---------------------------------------------------------------" | tee -a /dev/console
-	echo "UPDATER DEMO: The Linux kernel version is: $(uname -r)" | tee -a /dev/console
-	echo $(uname -r) > /sysroot/home/fio/kver
-	echo "---------------------------------------------------------------" | tee -a /dev/console
-	echo "" | tee -a /dev/console
-fi
+echo "---------------------------------------------------------------" | tee -a /dev/console
+echo "UPDATER DEMO: The Linux kernel version is: $(uname -r)" | tee -a /dev/console
+echo $(uname -r) > /sysroot/home/fio/kver
+echo "---------------------------------------------------------------" | tee -a /dev/console
+echo "" | tee -a /dev/console
 
 sleep 5
 
 if [ "$active_image" = "43" ]; then
 	echo "---------------------------------------------------------------" | tee -a /dev/console
-	echo "UPDATER DEMO: Now Downgrading to FoundriesFactory build: 33" | tee -a /dev/console
+	echo "UPDATER DEMO: Now changing to Weston accelerated graphics" | tee -a /dev/console
+	echo "FoundriesFactory build: 33" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
 	echo "" | tee -a /dev/console
 	aktualizr-lite update --update-name=33 | tee -a /dev/console
@@ -76,13 +68,14 @@ if [ "$active_image" = "43" ]; then
 	reboot
 else
 	echo "---------------------------------------------------------------" | tee -a /dev/console
-	echo "UPDATER DEMO: Now Upgrading to FoundriesFactory build: 43" | tee -a /dev/console
+	echo "UPDATER DEMO: Now Changing to upstream frame buffer graphics" | tee -a /dev/console
+	echo "FoundriesFactory build: 46" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
 	echo "" | tee -a /dev/console
-	aktualizr-lite update --update-name=43 | tee -a /dev/console
+	aktualizr-lite update --update-name=46 | tee -a /dev/console
 	echo "" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
-        echo "UPDATER DEMO: Image 43 has been installed successfully" | tee -a /dev/console
+        echo "UPDATER DEMO: Image 46 has been installed successfully" | tee -a /dev/console
 	echo "---------------------------------------------------------------" | tee -a /dev/console
 	echo "" | tee -a /dev/console
 	sleep 2
