@@ -45,7 +45,7 @@ echo "" | tee -a /dev/console
 
 sleep 5
 
-if [ "$active_image" = "43" ]; then
+if [ "$active_image" = "46" ]; then
 	echo "---------------------------------------------------------------" | tee -a /dev/console
 	echo "UPDATER DEMO: Now changing to Weston accelerated graphics" | tee -a /dev/console
 	echo "FoundriesFactory build: 33" | tee -a /dev/console

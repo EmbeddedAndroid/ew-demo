@@ -9,5 +9,5 @@ chmod a+x /sysroot/home/fio/DEMO_START
 chmod a+x /sysroot/home/fio/DEMO_STOP
 cp update.service /etc/systemd/system/update.service
 systemctl enable update.service
-aktualizr-lite update --update-name=43
+aktualizr-lite update --update-name=46
 reboot
